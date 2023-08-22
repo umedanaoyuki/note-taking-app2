@@ -4,7 +4,7 @@ import "./Sidebar.css";
 const Sidebar = () => {
     return (
         <div className="app-sidebar">
-            <div className="app-sidebvar-header">
+            <div className="app-sidebar-header">
                 <h1>ノート</h1>
                 <button>追加</button>
             </div>
