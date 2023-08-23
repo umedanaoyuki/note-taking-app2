@@ -17,7 +17,7 @@ const Sidebar = ({onAddNote, notes, onDeleteNote}) => {
                         <div className="app-sidebar-note" key={note.id}>
                             <div className="sidebar-note-title">
                                 <strong>{note.title}</strong>
-                                <button onClick={() => {onDeleteNote}}>削除</button>
+                                <button onClick={() => {onDeleteNote(note.id)}}>削除</button>
                             </div>
                             <p>{note.content}</p>
                             <small>{new Date(note.modDate).toLocaleDateString("ja-JP", {
