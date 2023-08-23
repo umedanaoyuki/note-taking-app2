@@ -1,0 +1,10 @@
+.app-main {
+    width: 70%;
+    height: 100vh;
+}
+
+.app-main-note-edit,
+.app-name-note-preview {
+    height: 50vh;
+
+}
