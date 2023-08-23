@@ -2,7 +2,7 @@ import "./Sidebar.css";
 import PropTypes from "prop-types";
 
 
-const Sidebar = ({onAddNote, notes}) => {
+const Sidebar = ({onAddNote, notes, onDeleteNote}) => {
 
     return (
         <div className="app-sidebar">
@@ -17,7 +17,7 @@ const Sidebar = ({onAddNote, notes}) => {
                         <div className="app-sidebar-note" key={note.id}>
                             <div className="sidebar-note-title">
                                 <strong>{note.title}</strong>
-                                <button>削除</button>
+                                <button onClick={() => {onDeleteNote}}>削除</button>
                             </div>
                             <p>{note.content}</p>
                             <small>{new Date(note.modDate).toLocaleDateString("ja-JP", {
@@ -32,7 +32,8 @@ const Sidebar = ({onAddNote, notes}) => {
 
 Sidebar.propTypes = {
     onAddNote: PropTypes.func.isRequired,
-    notes: PropTypes.func.isRequired
+    notes: PropTypes.array.isRequired,
+    onDeleteNote: PropTypes.func.isRequired
 };
 
 export default Sidebar;
