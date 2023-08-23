@@ -7,7 +7,7 @@ function App() {
 
     const [notes, setNotes] = useState([]);
 
-    const [activeNote, setActiveNote] = useState();
+    const [activeNote, setActiveNote] = useState("");
 
     const onAddNote = () => {
         console.log("新しくノートが追加されました");
@@ -31,12 +31,10 @@ function App() {
     };
 
     const getActiveNote = () => {
-        return (notes.find((note) => {
+        return notes.find((note) => {
             note.id === activeNote
-        }));
+        });
     };
-
-
 
   return (
     <div className="App">
@@ -47,7 +45,8 @@ function App() {
             activeNote={activeNote}
             setActiveNote={setActiveNote}>
         </Sidebar>
-        <Main activeNote={getActiveNote()}></Main>
+        {/*<Main activeNote={getActiveNote()}></Main>*/}
+        <Main getActiveNote={getActiveNote()}></Main>
     </div>
   )
 }

@@ -13,8 +13,11 @@ const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) =>
 
             <div className="app-sidebar-notes">
                 {notes.map((note) => {
+                    // console.log(note);
                     return(
-                        <div className={`app-sidebar-note ${note.id === activeNote && "active"}`} key={note.id} onClick={() => setActiveNote(note.id)}>
+                        <div className={`app-sidebar-note ${note.id === activeNote && "active"}`}
+                             key={note.id}
+                             onClick={() => setActiveNote(note.id)}>
                             <div className="sidebar-note-title">
                                 <strong>{note.title}</strong>
                                 <button onClick={() => {onDeleteNote(note.id)}}>削除</button>
@@ -31,6 +34,8 @@ const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) =>
 };
 
 Sidebar.propTypes = {
+    setActiveNote: PropTypes.func.isRequired,
+    activeNote: PropTypes.string.isRequired,
     onAddNote: PropTypes.func.isRequired,
     notes: PropTypes.array.isRequired,
     onDeleteNote: PropTypes.func.isRequired
