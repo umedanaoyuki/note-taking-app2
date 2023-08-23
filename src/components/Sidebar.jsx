@@ -1,8 +1,11 @@
-import React from 'react';
 import "./Sidebar.css";
+import PropTypes from "prop-types";
 
 const Sidebar = ({onAddNote}) => {
 
+    Sidebar.propTypes = {
+        onAddNote: PropTypes.func.isRequired
+    };
 
     return (
         <div className="app-sidebar">
