@@ -2,8 +2,7 @@ import './App.css'
 import Sidebar from "./components/Sidebar.jsx";
 import Main from "./components/Main.jsx";
 import {useState} from "react";
-import PropTypes from "prop-types";
-
+import uuid from "react-uuid";
 function App() {
 
     const [notes, setNotes] = useState([]);
@@ -11,7 +10,7 @@ function App() {
     const onAddNote = () => {
         console.log("新しくノートが追加されました");
         const newNote = {
-            id: "1",
+            id: uuid(),
             title: "新しいノート",
             content: "新しいノートの内容",
             modDate: Date.now()
@@ -29,4 +28,7 @@ function App() {
   )
 }
 
+
 export default App
+
+
