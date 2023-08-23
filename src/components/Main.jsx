@@ -1,8 +1,9 @@
 import React from 'react';
 import "./Main.css";
+import PropTypes from "prop-types";
 
 
-const Main = () => {
+const Main = ({activeNote}) => {
     return (
         <>
         <div className="app-main">
@@ -11,12 +12,16 @@ const Main = () => {
                 <textarea id="" placeholder="ノート内容を記入"></textarea>
             </div>
             <div className="app-name-note-preview">
-                <h1 className="preview-title">タイトル</h1>
-                <div className="markdown-preview">ノート内容</div>
+                <h1 className="preview-title">{activeNote.title}</h1>
+                <div className="markdown-preview">{activeNote.content}</div>
             </div>
         </div>
         </>
     );
 };
+
+Main.propTypes = {
+    activeNote: PropTypes.func.isRequired
+}
 
 export default Main;
