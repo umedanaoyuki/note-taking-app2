@@ -35,7 +35,6 @@ const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) =>
 
 Sidebar.propTypes = {
     setActiveNote: PropTypes.func.isRequired,
-    activeNote: PropTypes.string.isRequired,
     onAddNote: PropTypes.func.isRequired,
     notes: PropTypes.array.isRequired,
     onDeleteNote: PropTypes.func.isRequired
