@@ -45,7 +45,6 @@ function App() {
             activeNote={activeNote}
             setActiveNote={setActiveNote}>
         </Sidebar>
-        {/*<Main activeNote={getActiveNote()}></Main>*/}
         <Main getActiveNote={getActiveNote()}></Main>
     </div>
   )
