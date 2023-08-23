@@ -2,7 +2,7 @@ import "./Sidebar.css";
 import PropTypes from "prop-types";
 
 
-const Sidebar = ({onAddNote, notes, onDeleteNote}) => {
+const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) => {
 
     return (
         <div className="app-sidebar">
@@ -14,7 +14,7 @@ const Sidebar = ({onAddNote, notes, onDeleteNote}) => {
             <div className="app-sidebar-notes">
                 {notes.map((note) => {
                     return(
-                        <div className="app-sidebar-note" key={note.id}>
+                        <div className={`app-sidebar-note ${note.id === activeNote && "active"}`} key={note.id} onClick={() => setActiveNote(note.id)}>
                             <div className="sidebar-note-title">
                                 <strong>{note.title}</strong>
                                 <button onClick={() => {onDeleteNote(note.id)}}>削除</button>
