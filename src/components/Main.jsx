@@ -4,6 +4,12 @@ import PropTypes from "prop-types";
 
 
 const Main = ({activeNote}) => {
+
+    if (!activeNote) {
+        return (<div className="no-active-note">ノートが選択されていません</div>)
+    }
+
+
     return (
         <>
         <div className="app-main">
