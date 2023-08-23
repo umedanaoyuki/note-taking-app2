@@ -1,10 +1,11 @@
 import "./Sidebar.css";
 import PropTypes from "prop-types";
 
-const Sidebar = ({onAddNote}) => {
+const Sidebar = ({onAddNote, notes}) => {
 
     Sidebar.propTypes = {
-        onAddNote: PropTypes.func.isRequired
+        onAddNote: PropTypes.func.isRequired,
+        notes: PropTypes.func.isRequired
     };
 
     return (
@@ -15,14 +16,16 @@ const Sidebar = ({onAddNote}) => {
             </div>
 
             <div className="app-sidebar-notes">
-                <div className="app-sidebar-note">
-                    <div className="sidebar-note-title">
-                        <strong>タイトル</strong>
-                        <button>削除</button>
-                    </div>
-                    <p>ノートの内容です</p>
-                    <small>最後の修正日: xx/xx</small>
-                </div>
+                {notes.map((note) => {
+                    return(
+                        <div className="app-sidebar-note">
+                            <div className="sidebar-note-title">
+                                <strong>{note.title}</strong>
+                                <button>削除</button>
+                            </div>
+                            <p>{note.content}</p>
+                            <small>最後の修正日: {note.modDate}</small>
+                        </div>)})}
             </div>
         </div>
     );
