@@ -1,14 +1,15 @@
 import "./Main.css";
 import PropTypes from "prop-types";
-import uuid from "react-uuid";
 
 
-const Main = ({getActiveNote, onUpdatedNote}) => {
+// eslint-disable-next-line react/prop-types
+const Main = ({getActiveNote, onUpdateNote}) => {
 
     const onEditNote = (key, value) => {
-        onUpdatedNote({
-            id: getActiveNote.id,
+        onUpdateNote({
+            ...getActiveNote,
             [key]: value,
+            modDate: Date.now(),
         });
     };
 
@@ -19,11 +20,11 @@ const Main = ({getActiveNote, onUpdatedNote}) => {
     return (
         <div className="app-main">
             <div className="app-main-note-edit">
-                <input type="text" value={getActiveNote.title}
+                <input id="title" type="text" value={getActiveNote.title}
                        onChange={(e) => {onEditNote("title", e.target.value)}}>
                 </input>
-                <textarea id="" placeholder="ノート内容を記入" value={getActiveNote.content}
-                          onChange={(e) => {onEditNote("content", e.target.value)}></textarea>
+                <textarea id="content" placeholder="ノート内容を記入" value={getActiveNote.content}
+                          onChange={(e) => {onEditNote("content", e.target.value)}}></textarea>
             </div>
             <div className="app-name-note-preview">
                 <h1 className="preview-title">タイトル</h1>

@@ -1,7 +1,7 @@
 import "./Sidebar.css";
 import PropTypes from "prop-types";
 
-
+// eslint-disable-next-line react/prop-types
 const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) => {
 
     return (
@@ -37,7 +37,7 @@ Sidebar.propTypes = {
     setActiveNote: PropTypes.func.isRequired,
     onAddNote: PropTypes.func.isRequired,
     notes: PropTypes.array.isRequired,
-    onDeleteNote: PropTypes.func.isRequired
+    onDeleteNote: PropTypes.func.isRequired,
 };
 
 export default Sidebar;
