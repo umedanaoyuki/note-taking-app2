@@ -15,6 +15,12 @@ function App() {
         localStorage.setItem("notes", JSON.stringify(notes));
     }, [notes]);
 
+    //リロードしたときに最初だけ発火したいので空の配列をセットする
+    useEffect(() => {
+        setActiveNote(notes[0].id);
+    }, []);
+
+    
     const onAddNote = () => {
         console.log("新しくノートが追加されました");
         const newNote = {
