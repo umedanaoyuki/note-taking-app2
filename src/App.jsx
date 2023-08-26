@@ -5,11 +5,13 @@ import {useEffect, useState} from "react";
 import uuid from "react-uuid";
 function App() {
 
-    const [notes, setNotes] = useState([]);
+    //localStorageから値を持ってくる
+    const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes") || []));
     const [activeNote, setActiveNote] = useState(false);
 
     useEffect(() => {
         //ローカルストレージにノートを保存する
+        // "notes"はkeyの名前
         localStorage.setItem("notes", JSON.stringify(notes));
     }, [notes]);
 
