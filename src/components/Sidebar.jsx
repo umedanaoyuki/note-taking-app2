@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 // eslint-disable-next-line react/prop-types
 const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) => {
 
+    const sortedNotes = notes.sort((a, b) => (b.modDate - a.modDate));
+
     return (
         <div className="app-sidebar">
             <div className="app-sidebar-header">
@@ -12,7 +14,7 @@ const Sidebar = ({onAddNote, notes, onDeleteNote, activeNote, setActiveNote}) =>
             </div>
 
             <div className="app-sidebar-notes">
-                {notes.map((note) => {
+                {sortedNotes.map((note) => {
                     // console.log(note);
                     return(
                         <div className={`app-sidebar-note ${note.id === activeNote && "active"}`}
