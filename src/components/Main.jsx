@@ -1,5 +1,6 @@
 import "./Main.css";
 import PropTypes from "prop-types";
+import ReactMarkdown from 'react-markdown'
 
 
 // eslint-disable-next-line react/prop-types
@@ -28,7 +29,7 @@ const Main = ({getActiveNote, onUpdateNote}) => {
             </div>
             <div className="app-name-note-preview">
                 <h1 className="preview-title">{getActiveNote.title}</h1>
-                <div className="markdown-preview">{getActiveNote.content}</div>
+                <ReactMarkdown className="markdown-preview">{getActiveNote.content}</ReactMarkdown>
             </div>
         </div>
     );
